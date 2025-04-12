@@ -24,14 +24,37 @@ Enter the code for admin.py and models.py
 Execute Django admin and create details for 10 books
 
 ## PROGRAM
+```
+models.py
+
+from django.db import models
+from django.contrib import admin
+class BankLoan(models.Model):
+    Name = models.CharField(max_length=100)
+    Account_No = models.IntegerField(primary_key="Account_No")
+    Phone_Number = models.IntegerField()
+    Aadhar_No = models.IntegerField()
+    Loan_amount = models.FloatField()
+    Time_Period = models.IntegerField()
+     
+class BankAdmin(admin.ModelAdmin):
+    list_display = ('Name', 'Account_No', 'Phone_Number','Aadhar_No', 'Loan_amount', 'Time_Period',)
 
 
-![Screenshot (4)](https://github.com/user-attachments/assets/fd9c38ee-652d-4473-b958-70bdfe5e2c42)
+admin.py
+
+
+from django.contrib import admin
+from .models import BankLoan,BankAdmin 
+admin.site.register(BankLoan,BankAdmin)
+
+```
 
 ## OUTPUT
 
 Include the screenshot of your admin page.
 
+![Screenshot (4)](https://github.com/user-attachments/assets/fd9c38ee-652d-4473-b958-70bdfe5e2c42)
 
 ## RESULT
 Thus the program for creating movies database using ORM hass been executed successfully
